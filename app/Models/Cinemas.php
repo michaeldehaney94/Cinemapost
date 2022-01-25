@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cinemas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'cinema_name',
+        'location'
+        
+    ];
 }

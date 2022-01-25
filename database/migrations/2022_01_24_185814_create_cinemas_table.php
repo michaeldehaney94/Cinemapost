@@ -15,8 +15,8 @@ class CreateCinemasTable extends Migration
     {
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
-            $table->string('cinema_name', '100')->notNull();
-            $table->text('location')->notNull();
+            $table->string('cinema_name', '100');
+            $table->text('location');
             $table->timestamps();
         });
     }

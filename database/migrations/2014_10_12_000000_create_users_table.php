@@ -17,8 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('firstname', '100')->notNull();
             $table->string('lastname', '100')->notNull();
+            $table->string('email' , '100')->unique()->notNull();
             $table->string('username' , '100')->unique()->notNull();
-            $table->string('password', '50')->notNull();
+            $table->string('password')->notNull();
             $table->rememberToken();
             $table->timestamps();
         });
