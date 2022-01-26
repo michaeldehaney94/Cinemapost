@@ -9,22 +9,30 @@
                     <a href="{{ route('home') }}" class="float-right pr-2">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/back.png"/>
                     </a>
-                    Cinemas
+                    Admissions
                 </div>
                 <div class="card-body">
+                    <h2>Admission Prices</h2>
+
+                    <h3>Carib 5</h3>
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Cinema</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">City</th>
+                            <th scope="col">Categories</th>
+                            <th scope="col">Regular($)</th>
+                            <th scope="col">Box($)</th>
+                            <th scope="col">SkyBox($)</th>
+                            <th scope="col">VIP($)</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th>1</th>
+                            <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            
                           </tr>
                         </tbody>
                       </table>

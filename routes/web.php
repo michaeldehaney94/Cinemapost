@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\ScheduleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Home routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
+Route::post('/create', [App\Http\Controllers\HomeController::class, 'store'])->name('create');
 
+//Cinemas route
+Route::get('/cinemas/index', [App\Http\Controllers\CinemaController::class, 'index'])->name('cinemas.index');
+
+//Admission
+//Route::get('/admissions/index', [App\Http\Controllers\AdmissionController::class, 'index'])->name('admissions.index');
+Route::resource('admissions', AdmissionController::class);
+
+//Schedule route
+//Route::get('/schedule/index', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule.index');
+Route::resource('schedule', ScheduleController::class);

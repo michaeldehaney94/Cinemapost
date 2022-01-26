@@ -17,6 +17,7 @@ class CreateCinemasTable extends Migration
             $table->id();
             $table->string('cinema_name', '100');
             $table->text('location');
+            $table->string('city');
             $table->timestamps();
         });
     }
