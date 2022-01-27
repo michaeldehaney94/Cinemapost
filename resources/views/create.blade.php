@@ -158,12 +158,12 @@
 
                         {{-- movie trailer --}}
                         <div class="row mb-3">
-                            <label for="movie_poster" class="col-md-4 col-form-label text-md-end">Movie Trailer</label>
+                            <label for="movie_trailer" class="col-md-4 col-form-label text-md-end">Movie Trailer</label>
                             <div class="col-md-6">
-                                <input id="movie_poster" type="text" class="form-control @error('movie_poster') is-invalid @enderror" name="movie_poster" value="{{ old('movie_poster') }}"
+                                <input id="movie_trailer" type="text" class="form-control @error('movie_trailer') is-invalid @enderror" name="movie_trailer" value="{{ old('movie_trailer') }}"
                                 placeholder="Copy and paste URL">
 
-                                @error('movie_poster')
+                                @error('movie_trailer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -171,7 +171,26 @@
                             </div>
                         </div>
 
-                        <div class="float-right">
+                        {{-- cinema --}}
+                        <div class="row mb-3">
+                            <label for="cinema_id" class="col-md-4 col-form-label text-md-end">Cinema</label>
+                            <div class="col-md-6">
+                                <select id="cinema_id" type="text" class="form-control @error('cinema_id') is-invalid @enderror" name="cinema_id" value="{{ old('cinema_id') }}">
+                                    <option value="">Select the cinema it's playing at</option>
+                                    @foreach ( $cinemas as $cinema)
+                                    <option value="{{$cinema->id}}">{{ $cinema->cinema_name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('cinema_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">Add Movie</button>
                         </div>
                     </form>

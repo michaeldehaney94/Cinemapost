@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Opening This Week') }}</div>
+                <div class="card-header"><h3>Opening This Week</h3></div>
 
                 @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -13,11 +13,12 @@
                         </div>
                     @endif
 
-                <div class="card-body">
-                    <div class="m-3">
-                        <a href="{{ route('create') }}">
-                            <button type="button" class="btn btn-primary">Add Movie</button>
-                        </a>
+                    <div class="card-body">
+                        <div class="m-3">
+                            <a href="{{ route('create') }}">
+                                <button type="button" class="btn btn-primary">Add Movie</button>
+                            </a>
+                        </div>
                     </div>
 
                     @foreach ($movies as $movie)
@@ -37,7 +38,7 @@
                                 <p class="card-text">Cast: {{$movie->cast}}</p>
                                 <p class="card-text"><strong>Plot:</strong></p>
                                 <p class="card-text">{{$movie->plot}}</p>
-                                <p class="card-text"><strong>Cinema: </strong></p>
+                                <p class="card-text"><strong>Playing at: {{$movie->cinema->cinema_name}}</strong></p>
                                 <p class="card-text">Time Playing: {{$movie->time_playing}}</p>
                                 <a href="{{ $movie->movie_trailer }}" target="_blank">
                                     <button type="button" class="btn btn-danger">

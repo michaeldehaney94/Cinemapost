@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\CinemaController;
 
 
 /*
@@ -28,7 +29,8 @@ Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->n
 Route::post('/create', [App\Http\Controllers\HomeController::class, 'store'])->name('create');
 
 //Cinemas route
-Route::get('/cinemas/index', [App\Http\Controllers\CinemaController::class, 'index'])->name('cinemas.index');
+//Route::get('/cinemas/index', [App\Http\Controllers\CinemaController::class, 'index'])->name('cinemas.index');
+Route::resource('cinemas',CinemaController::class);
 
 //Admission
 //Route::get('/admissions/index', [App\Http\Controllers\AdmissionController::class, 'index'])->name('admissions.index');

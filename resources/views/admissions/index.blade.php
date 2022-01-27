@@ -9,8 +9,15 @@
                     <a href="{{ route('home') }}" class="float-right pr-2">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/back.png"/>
                     </a>
-                    Admissions
+                    <h3>Admissions</h3>
                 </div>
+
+                @if (session('status'))
+                  <div class="alert alert-success" role="alert">
+                      {{ session('status') }}
+                  </div>
+                @endif
+
                 <div class="card-body">
                     <h2>Admission Prices</h2>
 

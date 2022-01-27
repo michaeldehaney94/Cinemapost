@@ -9,8 +9,8 @@ class Movies extends Model
 {
     use HasFactory;
 
+    //protected $guarded = [];
     protected $fillable = [
-        'id',
         'cinema_id',
         'movie_title',
         'movie_rating',
@@ -24,4 +24,13 @@ class Movies extends Model
         'movie_poster',
         'movie_trailer'
     ];
+
+    public function cinema()
+    {
+        return $this->belongsTo(Cinemas::class);
+    }
 }
+
+
+
+

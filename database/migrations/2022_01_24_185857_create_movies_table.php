@@ -25,8 +25,8 @@ class CreateMoviesTable extends Migration
             $table->string('time_playing', '50');
             $table->string('week_scheduled');
             $table->text('plot')->nullable();
-            $table->string('movie_poster', '250');
-            $table->string('movie_trailer', '250');
+            $table->string('movie_poster');
+            $table->string('movie_trailer');
             $table->timestamps();
         });
     }

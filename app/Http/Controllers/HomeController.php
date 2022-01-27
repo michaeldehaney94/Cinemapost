@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movies;
+use App\Models\Cinemas;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
@@ -31,7 +32,9 @@ class HomeController extends Controller
 
     public function create() 
     {
-        return view('create');
+        $cinemas = Cinema::all();
+
+        return view('create', compact('cinema'));
     }
 
     public function store(Request $request) 
@@ -53,11 +56,11 @@ class HomeController extends Controller
         //store and display movie poster
         $imagePath = request('movie_poster')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(600, 1200); //w x h
 
         $image->save();
 
-        Movie::create([
+        Movies::create([
             'movie_title' => $request->movie_title,
             'movie_rating' => $request->movie_rating,
             'genre' => $request->genre,

@@ -12,7 +12,13 @@ class Cinemas extends Model
     protected $fillable = [
         'id',
         'cinema_name',
-        'location'
+        'location',
+        'city'
         
     ];
+
+    public function movie()
+    {
+        return $this->hasMany(Movies::class);
+    }
 }
