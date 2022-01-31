@@ -176,7 +176,7 @@
                             <label for="cinema_id" class="col-md-4 col-form-label text-md-end">Cinema</label>
                             <div class="col-md-6">
                                 <select id="cinema_id" type="text" class="form-control @error('cinema_id') is-invalid @enderror" name="cinema_id" value="{{ old('cinema_id') }}">
-                                    <option value="">Select the cinema it's playing at</option>
+                                    <option value="">Select Cinema Theatre...</option>
                                     @foreach ( $cinemas as $cinema)
                                     <option value="{{$cinema->id}}">{{ $cinema->cinema_name }}</option>
                                     @endforeach

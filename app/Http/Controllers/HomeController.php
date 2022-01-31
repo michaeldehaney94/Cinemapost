@@ -27,14 +27,13 @@ class HomeController extends Controller
     public function index()
     {
         $movies = Movies::all();
-        return view('home', compact('movies'));
+        return view('home', compact('movies'), );
     }
 
     public function create() 
     {
-        $cinemas = Cinema::all();
-
-        return view('create', compact('cinema'));
+        $cinemas = Cinemas::all();
+        return view('create', compact('cinemas'));
     }
 
     public function store(Request $request) 
@@ -49,17 +48,19 @@ class HomeController extends Controller
             'time_playing' => 'required',
             'week_scheduled' => 'required',
             'plot' => 'required',
-            'movie_poster' => 'image',
-            'movie_trailer' => 'url'
+            'movie_poster' => ['required', 'image'],
+            'movie_trailer' => 'url',
+            'cinema_id' => 'required'
         ]);
 
         //store and display movie poster
-        $imagePath = request('movie_poster')->store('uploads', 'public');
-
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(600, 1200); //w x h
-
-        $image->save();
-
+        if ($request->hasFile('movie_poster')) {
+            $image = $request->file('movie_poster');
+            $imageName = $image->getClientOriginalName();
+            $imagePath = "public/uploads/".$imageName;
+            $saveImage = Image::make($image)->save(storage_path('app/'.$imagePath))->resize(600, 300); //w x h
+        }
+        
         Movies::create([
             'movie_title' => $request->movie_title,
             'movie_rating' => $request->movie_rating,
@@ -71,21 +72,12 @@ class HomeController extends Controller
             'week_scheduled'  => $request->week_scheduled,
             'plot' => $request->plot,
             'movie_poster'  => $imagePath,
-            'movie_trailer'  => $request->movie_trailer
+            'movie_trailer'  => $request->movie_trailer,
+            'cinema_id' => $request->cinema_id
         ]);
 
         return redirect()->route('home')->with('message', 'Movie Content Created Successfully!'); 
     }
 
-    public function edit() 
-    {
-
-    }
-
-    public function destroy() 
-    {
-
-    }
-
-    
 }
+    

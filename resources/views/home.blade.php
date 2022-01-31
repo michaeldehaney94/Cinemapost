@@ -22,11 +22,11 @@
                     </div>
 
                     @foreach ($movies as $movie)
-                    <div class="card" style="max-width: 700px;">
+                    <div class="card mb-2" style="max-width: 700px;">
                         <div class="row no-gutters">
                             <div class="col-sm-5" >
-                                <img src="/storage/{{ $movie->movie_poster }}" 
-                                class="card-img-top h-100" alt="...">
+                                <img src="/storage/app/{{ $movie->movie_poster }}" 
+                                class="card-img-top h-100" alt="Poster not yet available...">
                             </div>
                             <div class="col-sm-7">
                                 <div class="card-body">
@@ -36,12 +36,12 @@
                                 <p class="card-text">Running Time: {{$movie->running_time}}</p>
                                 <p class="card-text">Release Date: {{$movie->release_date}}</p>
                                 <p class="card-text">Cast: {{$movie->cast}}</p>
-                                <p class="card-text"><strong>Plot:</strong></p>
-                                <p class="card-text">{{$movie->plot}}</p>
-                                <p class="card-text"><strong>Playing at: {{$movie->cinema->cinema_name}}</strong></p>
-                                <p class="card-text">Time Playing: {{$movie->time_playing}}</p>
+                                <p class="card-text">Plot:<br/>{{$movie->plot}}</p>
+                                <p class="card-text"><strong>Playing at:</strong> {{$movie->cinema->cinema_name}}</p>
+                                <p class="card-text"><strong>Playing on:</strong> {{$movie->time_playing}}</p>
                                 <a href="{{ $movie->movie_trailer }}" target="_blank">
                                     <button type="button" class="btn btn-danger">
+                                        <img src="https://img.icons8.com/ios-glyphs/20/ffffff/play--v1.png"/>
                                         Watch Trailer
                                     </button>
                                 </a>
