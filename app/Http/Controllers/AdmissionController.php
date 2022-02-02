@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Carib5Cost;
+use App\Models\KingstonDriveIn;
+use App\Models\MultiplexCost;
+use App\Models\SunshineCost;
 
 class AdmissionController extends Controller
 {
@@ -13,7 +17,16 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        return view('admissions.index');
+        $caribs = Carib5Cost::all();
+        $driveIns = KingstonDriveIn::all();
+        $sunshine = SunshineCost::all();
+        $multiplex = MultiplexCost::all();
+        return view('admissions.index', compact(
+            'caribs',
+            'driveIns',
+            'sunshine',
+            'multiplex'
+        ));
     }
 
     /**

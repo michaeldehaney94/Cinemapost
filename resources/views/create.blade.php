@@ -48,7 +48,7 @@
                         <div class="row mb-3">
                             <label for="genre" class="col-md-4 col-form-label text-md-end">Genre</label>
                             <div class="col-md-6">
-                                <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror" name="movie_rating" value="{{ old('genre') }}" placeholder="e.g. Crime, Mystery">
+                                <input id="genre" type="text" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" placeholder="e.g. Crime, Mystery">
 
                                 @error('genre')
                                     <span class="invalid-feedback" role="alert">

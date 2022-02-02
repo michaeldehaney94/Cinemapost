@@ -11,6 +11,7 @@ class Movies extends Model
 
     //protected $guarded = [];
     protected $fillable = [
+        'id',
         'cinema_id',
         'movie_title',
         'movie_rating',

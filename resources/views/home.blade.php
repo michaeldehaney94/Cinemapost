@@ -25,8 +25,8 @@
                     <div class="card mb-2" style="max-width: 700px;">
                         <div class="row no-gutters">
                             <div class="col-sm-5" >
-                                <img src="/storage/app/{{ $movie->movie_poster }}" 
-                                class="card-img-top h-100" alt="Poster not yet available...">
+                                <img src="../../storage/app/{{ $movie->movie_poster }}" 
+                                    class="card-img-top h-100" >
                             </div>
                             <div class="col-sm-7">
                                 <div class="card-body">
@@ -45,8 +45,9 @@
                                         Watch Trailer
                                     </button>
                                 </a>
-                                <a>
-                                    <img src="https://img.icons8.com/ios-glyphs/30/fa314a/filled-trash.png"/>
+                                <a href="{{route('edit', $movie->id)}}">
+                                    {{-- edit button --}}
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/edit--v1.png"/>
                                 </a>
                                 </div>
                             </div>

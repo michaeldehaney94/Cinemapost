@@ -28,14 +28,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 Route::post('/create', [App\Http\Controllers\HomeController::class, 'store'])->name('create');
 
+Route::get('/edit/{movie}/', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
+Route::patch('/edit/{movie}', [App\Http\Controllers\HomeController::class, 'update'])->name('edit');
+Route::delete('/edit/{movie}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('edit');
+
+
 //Cinemas route
-//Route::get('/cinemas/index', [App\Http\Controllers\CinemaController::class, 'index'])->name('cinemas.index');
 Route::resource('cinemas',CinemaController::class);
 
 //Admission
-//Route::get('/admissions/index', [App\Http\Controllers\AdmissionController::class, 'index'])->name('admissions.index');
 Route::resource('admissions', AdmissionController::class);
 
 //Schedule route
-//Route::get('/schedule/index', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule.index');
 Route::resource('schedule', ScheduleController::class);
