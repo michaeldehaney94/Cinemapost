@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><h3>Opening This Week</h3></div>
+                <div class="card-header"><h4>Movies Playing Now</h3></div>
 
                 @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -22,11 +22,11 @@
                     </div>
 
                     @foreach ($movies as $movie)
-                    <div class="card mb-2" style="max-width: 700px;">
+                    <div class="card mb-3" style="max-width: 1000px;">
                         <div class="row no-gutters">
                             <div class="col-sm-5" >
-                                <img src="../../storage/app/{{ $movie->movie_poster }}" 
-                                    class="card-img-top h-100" >
+                                <img src="{{$movie->movie_poster}}" alt="../../public/img/Image-Not-Available.png"
+                                    class="card-img-top h-100"> 
                             </div>
                             <div class="col-sm-7">
                                 <div class="card-body">
@@ -45,7 +45,7 @@
                                         Watch Trailer
                                     </button>
                                 </a>
-                                <a href="{{route('edit', $movie->id)}}">
+                                <a href="/edit/{{ $movie->id }}">
                                     {{-- edit button --}}
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/edit--v1.png"/>
                                 </a>

@@ -147,7 +147,8 @@
                         <div class="row mb-3">
                             <label for="movie_poster" class="col-md-4 col-form-label text-md-end">Movie Poster</label>
                             <div class="col-md-6">
-                                <input id="movie_poster" type="file" class="form-control @error('movie_poster') is-invalid @enderror" name="movie_poster" value="{{ old('movie_poster', $movie->movie_poster) }}" >
+                                <input id="movie_poster" type="url" class="form-control @error('movie_poster') is-invalid @enderror" name="movie_poster" value="{{ old('movie_poster', $movie->movie_poster) }}" 
+                                    placeholder="Copy and paste image URL">
 
                                 @error('movie_poster')
                                     <span class="invalid-feedback" role="alert">
@@ -201,7 +202,7 @@
                         <form action="/edit/{{ $movie->id }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger">Delete {{$movie->movie_title}}</button>
+                            <button class="btn btn-danger">Delete '{{$movie->movie_title}}'</button>
                         </form>
                     </div>
 

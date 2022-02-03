@@ -9,7 +9,7 @@
                     <a href="{{ route('home') }}" class="float-right pr-2">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/back.png"/>
                     </a>
-                    Cinemas
+                    Back
                 </div>
 
                 @if (session('status'))
@@ -19,6 +19,7 @@
                 @endif
                 
                 <div class="card-body">
+                  <h4>Cinemas</h4>
                   <a href="{{route('cinemas.create')}}" class="m-3">
                     <button type="button" class="btn btn-primary">Add Cinema</button>
                   </a>

@@ -36,8 +36,9 @@ Route::delete('/edit/{movie}', [App\Http\Controllers\HomeController::class, 'des
 //Cinemas route
 Route::resource('cinemas',CinemaController::class);
 
+//Schedule route
+Route::resource('schedule', ScheduleController::class);
+
 //Admission
 Route::resource('admissions', AdmissionController::class);
 
-//Schedule route
-Route::resource('schedule', ScheduleController::class);

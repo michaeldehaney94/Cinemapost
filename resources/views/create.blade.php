@@ -9,10 +9,10 @@
                     <a href="{{ route('home') }}" class="float-right pr-2">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/back.png"/>
                     </a>
-                    Add New Movie
+                    Back
                 </div>
                 <div class="card-body">
-
+                    <h4>Add New Movie</h4>
                     <form  method="POST" enctype="multipart/form-data">
                         @csrf
 
@@ -146,7 +146,8 @@
                         <div class="row mb-3">
                             <label for="movie_poster" class="col-md-4 col-form-label text-md-end">Movie Poster</label>
                             <div class="col-md-6">
-                                <input id="movie_poster" type="file" class="form-control @error('movie_poster') is-invalid @enderror" name="movie_poster" value="{{ old('movie_poster') }}" >
+                                <input id="movie_poster" type="url" class="form-control @error('movie_poster') is-invalid @enderror" name="movie_poster" value="{{ old('movie_poster') }}" 
+                                placeholder="Copy and paste image URL">
 
                                 @error('movie_poster')
                                     <span class="invalid-feedback" role="alert">
@@ -160,7 +161,7 @@
                         <div class="row mb-3">
                             <label for="movie_trailer" class="col-md-4 col-form-label text-md-end">Movie Trailer</label>
                             <div class="col-md-6">
-                                <input id="movie_trailer" type="text" class="form-control @error('movie_trailer') is-invalid @enderror" name="movie_trailer" value="{{ old('movie_trailer') }}"
+                                <input id="movie_trailer" type="url" class="form-control @error('movie_trailer') is-invalid @enderror" name="movie_trailer" value="{{ old('movie_trailer') }}"
                                 placeholder="Copy and paste URL">
 
                                 @error('movie_trailer')

@@ -40,26 +40,26 @@ class HomeController extends Controller
     {
         $request->validate([
             'movie_title' => 'required',
-            'movie_rating',
-            'genre',
-            'cast',
+            'movie_rating' => 'required',
+            'genre' => 'required',
+            'cast' => 'required',
             'running_time' => 'required',
             'release_date' => 'required',
             'time_playing' => 'required',
             'week_scheduled' => 'required',
             'plot' => 'required',
-            'movie_poster' => ['required','image','mimes:jpeg,jpg,png','max:2048'],
+            'movie_poster' => ['url','required'],//['required','image','mimes:jpeg,jpg,png','max:2048'],
             'movie_trailer' => 'url',
             'cinema_id' => 'required'
         ]);
 
-        //store and display movie poster
-        if ($request->hasFile('movie_poster')) {
-            $image = $request->file('movie_poster');
-            $imageName = $image->getClientOriginalName();
-            $imagePath = "public/uploads/".$imageName;
-            $saveImage = Image::make($image)->save(storage_path('app/'.$imagePath))->fit(600, 300); //w x h
-        }
+        //store and display movie poster image
+        // if ($request->hasFile('movie_poster')) {
+        //     $image = $request->file('movie_poster');
+        //     $imageName = $image->getClientOriginalName();
+        //     $imagePath = "public/uploads/".$imageName;
+        //     $saveImage = Image::make($image)->save(storage_path('app/'.$imagePath))->fit(600, 300); //w x h
+        // }
         
         Movies::create([
             'movie_title' => $request->movie_title,
@@ -71,7 +71,7 @@ class HomeController extends Controller
             'time_playing'  => $request->time_playing,
             'week_scheduled'  => $request->week_scheduled,
             'plot' => $request->plot,
-            'movie_poster'  => $imagePath,
+            'movie_poster'  => $request->movie_poster,//$imagePath,
             'movie_trailer'  => $request->movie_trailer,
             'cinema_id' => $request->cinema_id
         ]);
@@ -89,26 +89,26 @@ class HomeController extends Controller
    {
         $request->validate([
             'movie_title' => 'required',
-            'movie_rating',
-            'genre',
-            'cast',
+            'movie_rating' => 'required',
+            'genre' => 'required',
+            'cast' => 'required',
             'running_time' => 'required',
             'release_date' => 'required',
             'time_playing' => 'required',
             'week_scheduled' => 'required',
             'plot' => 'required',
-            'movie_poster' => ['required','image','mimes:jpeg,jpg,png','max:2048'],
+            'movie_poster' => ['url','required'],//['required','image','mimes:jpeg,jpg,png','max:2048'],
             'movie_trailer' => 'url',
             'cinema_id' => 'required'
         ]);
 
         
-        if ($request->hasFile('movie_poster')) {
-            $image = $request->file('movie_poster');
-            $imageName = $image->getClientOriginalName();
-            $imagePath = "public/uploads/".$imageName;
-            $saveImage = Image::make($image)->save(storage_path('app/'.$imagePath))->fit(600, 300); //w x h
-        }
+        // if ($request->hasFile('movie_poster')) {
+        //     $image = $request->file('movie_poster');
+        //     $imageName = $image->getClientOriginalName();
+        //     $imagePath = "public/uploads/".$imageName;
+        //     $saveImage = Image::make($image)->save(storage_path('app/'.$imagePath))->fit(600, 300); //w x h
+        // }
 
         $movie->update([
             'movie_title' => $request->movie_title,
@@ -120,7 +120,7 @@ class HomeController extends Controller
             'time_playing'  => $request->time_playing,
             'week_scheduled'  => $request->week_scheduled,
             'plot' => $request->plot,
-            'movie_poster'  => $imagePath,
+            'movie_poster'  => $request->movie_poster, //$imagePath,
             'movie_trailer'  => $request->movie_trailer,
             'cinema_id' => $request->cinema_id
         ]);

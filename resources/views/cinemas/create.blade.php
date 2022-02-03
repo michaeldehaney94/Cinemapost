@@ -9,10 +9,10 @@
                     <a href="{{ route('cinemas.index') }}" class="float-right pr-2">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/back.png"/>
                     </a>
-                    Add New Cinema
+                    Back
                 </div>
                 <div class="card-body">
-
+                    <h4>Add New Cinema</h4>
                     <form  method="POST" action="{{route('cinemas.store')}}">
                         @csrf
 
